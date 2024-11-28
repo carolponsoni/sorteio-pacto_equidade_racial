@@ -1,0 +1,119 @@
+* {
+  font-family: Montserrat, sans-serif;
+  text-align: center;
+}
+
+body.main {
+  background-color: #252525;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  
+}
+
+body.main > div,
+body.main > img {
+  margin-bottom: 5px;
+}
+
+button {
+  font-size: 2.5rem;
+  display: block;
+  position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);
+  border-radius: 10px;
+  
+  
+}
+.message {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 80%;
+  color: transparent;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: color 0.5s ease, transform 0.5s ease, opacity 0.5s ease;
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+
+.show-message {
+  color: #000;
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.hide-message {
+  color: transparent;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+img#logo {
+  width: 1920px;
+  border: none;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Estilo para o contêiner da imagem */
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Estilo para a mensagem de overlay */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 140, 107, 0.7); /* Fundo semitransparente */
+  color: white;
+  font-size: 3.5rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-align: center;
+  pointer-events: none; /* Garantir que o texto não interfira na interação com a imagem */
+}
+
+.win {
+  background-color: #075c1b !important;
+}
+
+.lose {
+  background-color: #5c0707 !important;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1080deg);
+  }
+}
+
+.spin-animation {
+  animation: spin 4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes decelerate {
+  0% {
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  100% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: rotate(0deg);
+  }
+}
+
+.stop-spin {
+  animation: decelerate 1s forwards;
+}
